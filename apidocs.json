@@ -1,0 +1,307 @@
+{
+    "openapi":"3.0.0",
+    "info":{
+        "title": "API Documentations",
+        "description": "List Api CRUD Backend_test",
+        "version": "1.0.0",
+        "contact": {
+            "name": "Dio Y.Pratama",
+            "email": "dyopratama6@gmail.com"
+          }
+    },
+    "servers": [
+        {
+          "url": "http://localhost:3030",
+          "description": "local"
+        }
+      ],
+    
+      "tags": [
+        {
+          "name": "Product",
+          "description": "API For Product"
+        }
+      ],
+
+      "paths": {
+        "/api/Product": {
+          "get": {
+            "summary": "Get all product",
+            "tags": ["Product"],
+            "responses": {
+              "200": {
+                "description": "OK"
+              },
+              "401": {
+                "description": "Unauthorized"
+              },
+              "500": {
+                "description": "Internal Server Error"
+              }
+            },
+            "description": "Get All Product",
+            "security": [
+              {
+                "Authorization": []
+              }
+            ],
+            "operationId": "GetAllProduct"
+          },
+          "post": {
+            "summary": "Insert Product",
+            "tags": ["Product"],
+            "requestBody": {
+              "required":true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "price_product": {
+                        "type": "integer"
+                      },
+                      "name_product":{
+                        "type": "string"
+                      }
+                    },
+                    "required":["price_product","name_product"]
+                  },
+                  "examples": {
+                      "value": {
+                          "price_product": 0,
+                          "name_product": "product"
+                      }
+                  }
+                }
+              },
+              "description": ""
+            },
+            "responses": {
+              "200": {
+                "description": "OK"
+              },
+              "401": {
+                "description": "Unauthorized"
+              },
+              "500": {
+                "description": "Internal Server Error"
+              }
+            },
+            "description": "Insert Product",
+            "security": [
+              {
+                "Authorization": []
+              }
+            ],
+            "operationId": "InsertProduct"
+          }
+        },
+        "/api/countProduct":{
+          "get": {
+            "summary": "Get all product > 80000",
+            "tags": ["Product"],
+            "responses": {
+              "200": {
+                "description": "OK"
+              },
+              "401": {
+                "description": "Unauthorized"
+              },
+              "500": {
+                "description": "Internal Server Error"
+              }
+            },
+            "description": "Get All Product > 80000",
+            "security": [
+              {
+                "Authorization": []
+              }
+            ],
+            "operationId": "GetAllProductCount"
+          }
+        },
+        "/api/validationPassword":{
+          "post": {
+            "summary": "Validation Password",
+            "tags": ["Product"],
+            "requestBody": {
+              "required":true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "password":{
+                        "type": "string"
+                      }
+                    },
+                    "required":["password"]
+                  },
+                  "examples": {
+                      "value": {
+                          "password": "yourpassword"
+                      }
+                  }
+                }
+              },
+              "description": ""
+            },
+            "responses": {
+              "200": {
+                "description": "OK"
+              },
+              "401": {
+                "description": "Unauthorized"
+              },
+              "500": {
+                "description": "Internal Server Error"
+              }
+            },
+            "description": "Validation Password",
+            "security": [
+              {
+                "Authorization": []
+              }
+            ],
+            "operationId": "Validation Password"
+          }
+        },
+        "/api/Product/{id}": {
+          "get": {
+            "summary": "Get One Product",
+            "tags": ["Product"],
+            "responses": {
+              "200": {
+                "description": "OK"
+              },
+              "401": {
+                "description": "Unauthorized"
+              },
+              "500": {
+                "description": "Internal Server Error"
+              }
+            },
+            "description": "Get One Mahasiswa",
+            "parameters": [
+              {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "in": "path",
+                "name": "id",
+                "required" :true
+              }
+            ],
+            "security": [
+              {
+                "Authorization": []
+              }
+            ],
+            "operationId": "GetOneProduct"
+          },
+          "put": {
+            "summary": "Update Product",
+            "tags": ["Product"],
+            "requestBody": {
+              "required":true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "price_product": {
+                        "type": "integer"
+                      },
+                      "name_product":{
+                        "type": "string"
+                      }
+                    },
+                    "required":["price_product","name_product"]
+                  },
+                  "examples": {
+                      "value": {
+                          "price_product": 0,
+                          "name_product": "product"
+                      }
+                  }
+                }
+              },
+              "description": ""
+            },
+            "responses": {
+              "200": {
+                "description": "OK"
+              },
+              "401": {
+                "description": "Unauthorized"
+              },
+              "500": {
+                "description": "Internal Server Error"
+              }
+            },
+            "description": "Update Product",
+            "parameters": [
+              {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "in": "path",
+                "name": "id",
+                "required" :true
+              }
+            ],
+            "security": [
+              {
+                "Authorization": []
+              }
+            ],
+            "operationId": "UpdateProduct"
+          },
+          "delete": {
+            "summary": "Delete Product",
+            "tags": ["Product"],
+            "responses": {
+              "200": {
+                "description": "OK"
+              },
+              "401": {
+                "description": "Unauthorized"
+              },
+              "500": {
+                "description": "Internal Server Error"
+              }
+            },
+            "description": "Delete Product",
+            "parameters": [
+              {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "in": "path",
+                "name": "id",
+                "required" :true
+              }
+            ],
+            "security": [
+              {
+                "Authorization": []
+              }
+            ],
+            "operationId": "DeleteProduct"
+          }
+        }
+    },
+
+      "components": {
+        "securitySchemes": {
+          "Authorization": {
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "JWT"
+          }
+        }
+    }
+}
