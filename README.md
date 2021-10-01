@@ -15,3 +15,5 @@ Answer
     - http://localhost:3030/api/Product/{id} method PUT dengan parameter id dan body untuk edit data
     - http://localhost:3030/api/Product/{id} method DELETE dengan parameter id untuk delete data
 - Untuk jawaban nomor 6 berada di api http://localhost:3030/api/countProduct
+
+Terimakasih :)
